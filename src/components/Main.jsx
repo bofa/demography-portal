@@ -39,7 +39,7 @@ export default class Main extends Component {
         .map( (c,i) => <MenuItem value={c.FIPS} key={i} primaryText={c.name} /> );
         
         this.state = {
-            year: 2000,
+            year: 2015,
             fips1: 'KR',
             fips2: 'WS',
             fipsData1: Map(),
@@ -191,6 +191,7 @@ export default class Main extends Component {
             newState[fipsKey] = Immutable.fromJS(v);
             newState[watingIndex] = false;
             this.setState(newState);
+            this.onAnimate();
         })
         
         return p;
