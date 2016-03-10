@@ -118,7 +118,7 @@ export default class Main extends Component {
                 window.setInterval( (state => {
                     const newYear = this.state.year>=settings.maxYear ? settings.minYear : this.state.year+1;
                     this.setState({year: newYear});
-                }).bind(this), 500) 
+                }).bind(this), 200) 
             });
         }
         else {
