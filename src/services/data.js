@@ -23,6 +23,10 @@ export default  [
     name: 'United Arab Emirates'
 },
 {
+    FIPS: 'AS',
+    name: 'Australia'
+},
+{
     FIPS: 'AR',
     name: 'Argentina'
 },
@@ -39,12 +43,24 @@ export default  [
     name: 'Cuba'
 },
 {
+    FIPS: 'DK',
+    name: 'Denmark'
+},
+{
     FIPS: 'MX',
     name: 'Mexico'
 },
 {
+    FIPS: 'GM',
+    name: 'Germany'
+},
+{
     FIPS: 'BX',
     name: 'Brunei'
+},
+{
+    FIPS: 'PL',
+    name: 'Poland'
 },
 {
     FIPS: 'QA',
@@ -61,6 +77,10 @@ export default  [
 {
     FIPS: 'KN',
     name: 'Korea, North'
+},
+{
+    FIPS: 'KS',
+    name: 'Korea, South'
 },
 {
     FIPS: 'WS',
@@ -115,7 +135,11 @@ export default  [
     name: 'United Kingdom'
 },
 {
-    FIPS: 'AS',
-    name: 'Australia'
+    FIPS: 'JA',
+    name: 'Japan'
+},
+{
+    FIPS: 'NZ',
+    name: 'New Zealand'
 },
 ].sort(compare);
