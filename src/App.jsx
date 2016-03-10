@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Router, Route, Link, browserHistory } from 'react-router'
 
 import Chart from './components/Chart';
 import Main from './components/Main';
@@ -16,13 +17,16 @@ export default class App extends Component {
         this.state = {};
         
     }
+
+    //<Route path="/:year/:fips1/:fips2" component={Main}>
     
     render() {
         
         return (
-            <div>
-                <Main />
-            </div>
+            <Router history={browserHistory}>
+                <Route path="/:year" component={Main}>
+                </Route>
+            </Router>
         );
     }
     

@@ -39,7 +39,6 @@ export default class Main extends Component {
         .map( (c,i) => <MenuItem value={c.FIPS} key={i} primaryText={c.name} /> );
         
         this.state = {
-            year: 2015,
             fips1: 'KR',
             fips2: 'WS',
             fipsData1: Map(),
@@ -76,13 +75,17 @@ export default class Main extends Component {
     
     render() {
         
+        const { year, fips1, fips2 } = this.props.params;
+        
+        console.log("asfd", year, fips1, fips2);
+        
         const max = Math.max(this.state.fipsData1.get('maxYear'), this.state.fipsData2.get('maxYear'));
         
         return (
             <div>
             
                 <div>
-                    <Slider animate={this.state.interval===-1} year={this.state.year} min={settings.minYear} max={settings.maxYear} onChange={this.onSliderChange} onAnimate={ this.onAnimate } />
+                    <Slider animate={this.state.interval===-1} year={parseInt(this.props.params.year)} min={settings.minYear} max={settings.maxYear} onChange={this.onSliderChange} onAnimate={ this.onAnimate } />
                 </div>
                 
                 <div className="row">
@@ -91,7 +94,7 @@ export default class Main extends Component {
                             {this.FIPSData}
                         </SelectField>
                         {this.Loading(this.state.wating1)}
-                        <Chart year={this.state.year} country={this.state.fipsData1} scale={0.1*this.state.fipsData1.get('maxYear')} />
+                        <Chart year={parseInt(this.props.params.year)} country={this.state.fipsData1} scale={0.1*this.state.fipsData1.get('maxYear')} />
                     </div>
                     
                     <div className="col-lg-6">
@@ -99,7 +102,7 @@ export default class Main extends Component {
                             {this.FIPSData}
                         </SelectField>
                         {this.Loading(this.state.wating2)}
-                        <Chart year={this.state.year}  country={this.state.fipsData2} scale={0.1*this.state.fipsData2.get('maxYear')}/>
+                        <Chart year={parseInt(parseInt(this.props.params.year))}  country={this.state.fipsData2} scale={0.1*this.state.fipsData2.get('maxYear')}/>
                     </div>
                 </div>
 
@@ -111,12 +114,12 @@ export default class Main extends Component {
         
         if(this.state.interval===-1) {
             // Fire imidiatly
-            const newYear = this.state.year>=settings.maxYear ? settings.minYear : this.state.year+1;
+            const newYear = parseInt(this.props.params).year>=settings.maxYear ? settings.minYear : parseInt(this.props.params.year)+1;
             this.setState({year: newYear});
             
             this.setState({interval: 
                 window.setInterval( (state => {
-                    const newYear = this.state.year>=settings.maxYear ? settings.minYear : this.state.year+1;
+                    const newYear = parseInt(this.props.params.year)>=settings.maxYear ? settings.minYear : parseInt(this.props.params.year)+1;
                     this.setState({year: newYear});
                 }).bind(this), 200) 
             });
@@ -130,6 +133,9 @@ export default class Main extends Component {
     
     
     componentDidMount() {
+        
+        console.log("this.props", this.props);
+        
         this.getAPI('wating1', 'fipsData1', this.state.fips1);
         this.getAPI('wating2', 'fipsData2', this.state.fips2);
     
@@ -143,7 +149,7 @@ export default class Main extends Component {
     getAPI(watingIndex, fipsKey, country) {
         
         //let { country } = this.props;
-        const year = [this.state.year];
+        const year = [parseInt(this.props.params.year)];
         
         // TODO max for max POP, get all the years.
         this.setState({[fipsKey]: Map(), [watingIndex]: true});
