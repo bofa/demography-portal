@@ -4,6 +4,7 @@ import Immutable, { Map } from 'immutable';
 import SelectField from 'material-ui/lib/select-field';
 import MenuItem from 'material-ui/lib/menus/menu-item';
 import DropDownMenu from 'material-ui/lib/DropDownMenu';
+import CircularProgress from 'material-ui/lib/circular-progress';
 
 import Chart from './Chart';
 import Slider from './Slider';
@@ -43,23 +44,34 @@ export default class Main extends Component {
             fips2: 'WS',
             fipsData1: Map(),
             fipsData2: Map(),
-            interval: -1
+            interval: -1,
+            wating1: false,
+            wating2: false,
         };
         
     }
     
     fips1(event, index, value) {
         this.setState({ fips1: value});
-        this.getAPI('fipsData1', FIPS[index].FIPS);
+        this.getAPI('wating1', 'fipsData1', FIPS[index].FIPS);
     }
     
     fips2(event, index, value) {
         this.setState({ fips2: value});
-        this.getAPI('fipsData2', FIPS[index].FIPS);
+        this.getAPI('wating2', 'fipsData2', FIPS[index].FIPS);
     }
     
     onSliderChange(value) {
         this.setState({ year: value});
+    }
+    
+    Loading(active) {
+        if(active) {
+            return <CircularProgress hidden={false} size={0.5} />
+        }
+        else {
+            false;
+        }
     }
     
     render() {
@@ -78,6 +90,7 @@ export default class Main extends Component {
                         <SelectField value={this.state.fips1} onChange={ this.fips1 }>
                             {this.FIPSData}
                         </SelectField>
+                        {this.Loading(this.state.wating1)}
                         <Chart year={this.state.year} country={this.state.fipsData1} scale={0.1*this.state.fipsData1.get('maxYear')} />
                     </div>
                     
@@ -85,6 +98,7 @@ export default class Main extends Component {
                         <SelectField value={this.state.fips2} onChange={ this.fips2 } >
                             {this.FIPSData}
                         </SelectField>
+                        {this.Loading(this.state.wating2)}
                         <Chart year={this.state.year}  country={this.state.fipsData2} scale={0.1*this.state.fipsData2.get('maxYear')}/>
                     </div>
                 </div>
@@ -116,8 +130,8 @@ export default class Main extends Component {
     
     
     componentDidMount() {
-        this.getAPI('fipsData1', this.state.fips1);
-        this.getAPI('fipsData2', this.state.fips2);
+        this.getAPI('wating1', 'fipsData1', this.state.fips1);
+        this.getAPI('wating2', 'fipsData2', this.state.fips2);
     
         document.addEventListener("visibilitychange", function() {
             clearInterval(this.state.interval);
@@ -126,14 +140,14 @@ export default class Main extends Component {
         
     }
     
-    getAPI(fipsKey, country) {
+    getAPI(watingIndex, fipsKey, country) {
         
         //let { country } = this.props;
-        let years = [...rangeGen(settings.minYear, settings.maxYear, 1)];
+        const year = [this.state.year];
         
-        // TODO max for max POP
-        this.setState({[fipsKey]: Map()});
-        const p = API.getCountry(country, years)
+        // TODO max for max POP, get all the years.
+        this.setState({[fipsKey]: Map(), [watingIndex]: true});
+        API.getCountry(country, year)
         .then( v => {
             const fips = FIPS.find( element => element.FIPS === country );
             v.name = fips ? fips.name : "";
@@ -153,6 +167,31 @@ export default class Main extends Component {
         })
         
         
+        
+        //let { country } = this.props;
+        let years = [...rangeGen(settings.minYear, settings.maxYear, 1)];
+        
+        // TODO max for max POP, get all the years.
+        this.setState({[fipsKey]: Map()});
+        const p = API.getCountry(country, years)
+        .then( v => {
+            const fips = FIPS.find( element => element.FIPS === country );
+            v.name = fips ? fips.name : "";
+            
+            v.maxYear = Object.keys(v).reduce(function (previous, key) {
+                const value = parseInt(v[key].POP);
+                if( value && !isNaN(value) ) {
+                    return Math.max(previous, value );
+                } else {
+                    return previous;
+                }
+            }, 0);
+            
+            const newState = {};
+            newState[fipsKey] = Immutable.fromJS(v);
+            newState[watingIndex] = false;
+            this.setState(newState);
+        })
         
         return p;
         

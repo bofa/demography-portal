@@ -115,10 +115,6 @@ export default  [
     name: 'United Kingdom'
 },
 {
-    FIPS: 'VN',
-    name: 'Vietnam'
-},
-{
     FIPS: 'AS',
     name: 'Australia'
 },
