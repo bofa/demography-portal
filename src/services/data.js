@@ -23,6 +23,47 @@ export default  [
     name: 'United Arab Emirates'
 },
 {
+    FIPS: 'AF',
+    name: 'Afghanistan'
+},
+{
+    FIPS: 'AG',
+    name: 'Algeria'
+},
+{
+    FIPS: 'AJ',
+    name: 'Azerbaijan'
+},
+{
+    FIPS: 'AL',
+    name: 'Albania'
+},
+{
+    FIPS: 'AM',
+    name: 'Armenia'
+},
+{
+    FIPS: 'AN',
+    name: 'Andorra'
+},
+{
+    FIPS: 'AQ',
+    name: 'American Samoa'
+},
+{
+    FIPS: 'AR',
+    name: 'Argentina'
+},
+{
+    FIPS: 'AU',
+    name: 'Austria'
+},
+
+
+
+
+
+{
     FIPS: 'AS',
     name: 'Australia'
 },
