@@ -39,6 +39,7 @@ export default class Main extends Component {
         .map( (c,i) => <MenuItem value={c.FIPS} key={i} primaryText={c.name} /> );
         
         this.state = {
+            year: 2015,
             fips1: 'KR',
             fips2: 'WS',
             fipsData1: Map(),
@@ -75,17 +76,21 @@ export default class Main extends Component {
     
     render() {
         
-        const { year, fips1, fips2 } = this.props.params;
+        //TODO Year
+        const { fips1, fips2 } = this.state;
+        const year = this.state.year;
         
         console.log("asfd", year, fips1, fips2);
         
         const max = Math.max(this.state.fipsData1.get('maxYear'), this.state.fipsData2.get('maxYear'));
         
+        console.log("State", this.state);
+        
         return (
             <div>
             
                 <div>
-                    <Slider animate={this.state.interval===-1} year={parseInt(this.props.params.year)} min={settings.minYear} max={settings.maxYear} onChange={this.onSliderChange} onAnimate={ this.onAnimate } />
+                    <Slider animate={this.state.interval===-1} year={year} min={settings.minYear} max={settings.maxYear} onChange={this.onSliderChange} onAnimate={ this.onAnimate } />
                 </div>
                 
                 <div className="row">
@@ -94,7 +99,7 @@ export default class Main extends Component {
                             {this.FIPSData}
                         </SelectField>
                         {this.Loading(this.state.wating1)}
-                        <Chart year={parseInt(this.props.params.year)} country={this.state.fipsData1} scale={0.1*this.state.fipsData1.get('maxYear')} />
+                        <Chart year={year} country={this.state.fipsData1} scale={0.1*this.state.fipsData1.get('maxYear')} />
                     </div>
                     
                     <div className="col-lg-6">
@@ -102,7 +107,7 @@ export default class Main extends Component {
                             {this.FIPSData}
                         </SelectField>
                         {this.Loading(this.state.wating2)}
-                        <Chart year={parseInt(parseInt(this.props.params.year))}  country={this.state.fipsData2} scale={0.1*this.state.fipsData2.get('maxYear')}/>
+                        <Chart year={year}  country={this.state.fipsData2} scale={0.1*this.state.fipsData2.get('maxYear')}/>
                     </div>
                 </div>
 
@@ -112,14 +117,18 @@ export default class Main extends Component {
     
     onAnimate() {
         
+        //TODO Rounting
+        //const year = parseInt(this.props.params).year;
+        const year = this.state.year;
+        
         if(this.state.interval===-1) {
             // Fire imidiatly
-            const newYear = parseInt(this.props.params).year>=settings.maxYear ? settings.minYear : parseInt(this.props.params.year)+1;
+            const newYear = year>=settings.maxYear ? settings.minYear : year+1;
             this.setState({year: newYear});
             
             this.setState({interval: 
                 window.setInterval( (state => {
-                    const newYear = parseInt(this.props.params.year)>=settings.maxYear ? settings.minYear : parseInt(this.props.params.year)+1;
+                    const newYear = year>=settings.maxYear ? settings.minYear : year+1;
                     this.setState({year: newYear});
                 }).bind(this), 200) 
             });
@@ -149,12 +158,17 @@ export default class Main extends Component {
     getAPI(watingIndex, fipsKey, country) {
         
         //let { country } = this.props;
-        const year = [parseInt(this.props.params.year)];
+        //TODO
+        //const year = [parseInt(this.props.params.year)];
+        const year = [this.state.year];
         
         // TODO max for max POP, get all the years.
         this.setState({[fipsKey]: Map(), [watingIndex]: true});
         API.getCountry(country, year)
         .then( v => {
+            
+            console.log("Sucess: got country1", v);
+            
             const fips = FIPS.find( element => element.FIPS === country );
             v.name = fips ? fips.name : "";
             
@@ -172,8 +186,6 @@ export default class Main extends Component {
             this.setState(newState);
         })
         
-        
-        
         //let { country } = this.props;
         let years = [...rangeGen(settings.minYear, settings.maxYear, 1)];
         
@@ -181,6 +193,9 @@ export default class Main extends Component {
         this.setState({[fipsKey]: Map()});
         const p = API.getCountry(country, years)
         .then( v => {
+            
+            console.log("Sucess: got country2", v);
+            
             const fips = FIPS.find( element => element.FIPS === country );
             v.name = fips ? fips.name : "";
             

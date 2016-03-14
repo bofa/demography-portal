@@ -6,8 +6,8 @@ var ReactHighcharts = require('react-highcharts');
 
 export default class Chart extends Component {
     
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         
         const ageArray = this.generateAgeArray();
         
@@ -17,9 +17,84 @@ export default class Chart extends Component {
         this.state = {
         
         };
+        
+        const { country, year, scale } = this.props;
+        
+        // Age categories
+        const categories = ['0-4', '5-9', '10-14', '15-19',
+                            '20-24', '25-29', '30-34', '35-39', '40-44',
+                            '45-49', '50-54', '55-59', '60-64', '65-69',
+                            '70-74', '75-79', '80-84', '85-89', '90-94',
+                            '95-99', '100 + '];
+        
+        this.config = {
+            chart: {
+                type: 'bar'
+            },
+            title: {
+                text: 'Population pyramid for ' + country.get('name') + ', ' + year
+            },
+            subtitle: {
+                text: 'Source: <a href="http://www.census.gov/">US Census</a>'
+            },
+            xAxis: [{
+                categories: categories,
+                reversed: false,
+                labels: {
+                    step: 1
+                }
+            }, { // mirror axis on right side
+                opposite: true,
+                reversed: false,
+                categories: categories,
+                linkedTo: 0,
+                labels: {
+                    step: 1
+                }
+            }],
+            yAxis: {
+                title: {
+                    text: null
+                },
+                labels: {
+                    formatter: function () {
+                        return Math.abs(this.value);
+                    }
+                },
+                max: scale,
+                min: -scale
+            },
+
+            plotOptions: {
+                series: {
+                    stacking: 'normal'
+                }
+            },
+            tooltip: {
+                formatter: function () {
+                    return '<b>' + country.get('name') + ', age ' + this.point.category + '</b><br/>' +
+                        'Population: ' + Highcharts.numberFormat(Math.abs(this.point.y), 0);
+                }
+            },
+            series: [{
+                name: 'Male',
+                //data: menData,
+                animation: false,
+            }, {
+                name: 'Female',
+                //data: womanData,
+                animation: false,
+            }]
+        }
+        
+        //this.config = Immutable.fromJS(config);
+        
     }
     
     componentWillReceiveProps() {
+        
+        // return false;
+        
         // this.componentDidMount();
     }
     
@@ -31,8 +106,12 @@ export default class Chart extends Component {
             return false;
         }
         
+        this.config.series[0].data = this.menArray.map(e => -parseInt(country.getIn([''+year, e])));
+        this.config.series[1].data = this.womanArray.map(e => parseInt(country.getIn([''+year, e])));        
+
+        
         const menData = this.menArray.map(e => -parseInt(country.getIn([''+year, e])));
-        const womanData = this.womanArray.map(e => parseInt(country.getIn([''+year, e])));        
+        const womanData = this.womanArray.map(e => parseInt(country.getIn([''+year, e])));
         
         // Age categories
         const categories = ['0-4', '5-9', '10-14', '15-19',
@@ -41,7 +120,7 @@ export default class Chart extends Component {
                             '70-74', '75-79', '80-84', '85-89', '90-94',
                             '95-99', '100 + '];
         
-        const config = {
+        let config = {
             chart: {
                 type: 'bar'
             },
@@ -100,6 +179,10 @@ export default class Chart extends Component {
                 animation: false,
             }]
         }
+        
+        console.log("config", config, this.config);
+        
+        //config = {...this.config};
         
         return (
             <div>
