@@ -360,107 +360,580 @@ export default  [
 
 
 
+{
+    FIPS: 'HA',
+    name: 'Haiti'
+},
+{
+    FIPS: 'HK',
+    name: 'Hong Kong'
+},
+{
+    FIPS: 'HO',
+    name: 'Honduras'
+},
+{
+    FIPS: 'HR',
+    name: 'Croatia'
+},
+{
+    FIPS: 'HU',
+    name: 'Hungary'
+},
+
+
+
+
+
+
 
 {
-    FIPS: 'MX',
-    name: 'Mexico'
+    FIPS: 'IC',
+    name: 'Iceland'
 },
 {
-    FIPS: 'GM',
-    name: 'Germany'
+    FIPS: 'ID',
+    name: 'Indonesia'
 },
 {
-    FIPS: 'BX',
-    name: 'Brunei'
+    FIPS: 'IN',
+    name: 'India'
 },
 {
-    FIPS: 'PL',
-    name: 'Poland'
+    FIPS: 'IR',
+    name: 'Iran'
 },
 {
-    FIPS: 'QA',
-    name: 'Qatar'
+    FIPS: 'IL',
+    name: 'Israel'
 },
 {
-    FIPS: 'SY',
-    name: 'Syria'
+    FIPS: 'IT',
+    name: 'Italy'
 },
 {
-    FIPS: 'PO',
-    name: 'Portugal'
+    FIPS: 'IZ',
+    name: 'Iraq'
+},
+
+
+
+
+
+{
+    FIPS: 'JA',
+    name: 'Japan'
+},
+{
+    FIPS: 'JM',
+    name: 'Jamaica'
+},
+{
+    FIPS: 'JO',
+    name: 'Jordan'
+},
+
+
+
+
+
+{
+    FIPS: 'KE',
+    name: 'Kenya'
+},
+{
+    FIPS: 'KG',
+    name: 'Kyrgyzstan'
 },
 {
     FIPS: 'KN',
     name: 'Korea, North'
 },
 {
+    FIPS: 'KR',
+    name: 'Kiribati'
+},
+{
     FIPS: 'KS',
     name: 'Korea, South'
 },
-
 {
-    FIPS: 'RP',
-    name: 'Philippines'
+    FIPS: 'KU',
+    name: 'Kuwait'
+},
+{
+    FIPS: 'KV',
+    name: 'Kosovo'
+},
+{
+    FIPS: 'KZ',
+    name: 'Kazakhstan'
 },
 
+
+
+
 {
-    FIPS: 'WS',
-    name: 'Samoa'
+    FIPS: 'Laos',
+    name: 'LA'
 },
 {
-    FIPS: 'SP',
-    name: 'Spain'
+    FIPS: 'LE',
+    name: 'Lebanon'
 },
 {
-    FIPS: 'SW',
-    name: 'Sweden'
+    FIPS: 'LG',
+    name: 'Latvia'
 },
 {
-    FIPS: 'SZ',
-    name: 'Switzerland'
+    FIPS: 'LH',
+    name: 'Lithuania'
 },
 {
-    FIPS: 'UP',
-    name: 'Ukraine'
+    FIPS: 'LI',
+    name: 'Liberia'
 },
 {
-    FIPS: 'KR',
-    name: 'Kiribati'
+    FIPS: 'LO',
+    name: 'Slovakia'
+},
+{
+    FIPS: 'LS',
+    name: 'Liechtenstein'
+},
+{
+    FIPS: 'LT',
+    name: 'Lesotho'
+},
+{
+    FIPS: 'LU',
+    name: 'Luxembourg'
+},
+{
+    FIPS: 'LY',
+    name: 'Libya'
+},
+
+
+
+
+
+
+
+{
+    FIPS: 'MA',
+    name: 'Madagascar'
+},
+{
+    FIPS: 'MB',
+    name: 'Martinique'
+},
+{
+    FIPS: 'MC',
+    name: 'Macau'
+},
+{
+    FIPS: 'MD',
+    name: 'Moldova'
+},
+{
+    FIPS: 'MF',
+    name: 'Mayotte'
+},
+{
+    FIPS: 'MG',
+    name: 'Mongolia'
+},
+{
+    FIPS: 'MI',
+    name: 'Malawi'
+},
+{
+    FIPS: 'MJ',
+    name: 'Montenegro'
+},
+{
+    FIPS: 'MK',
+    name: 'Macedonia'
+},
+{
+    FIPS: 'ML',
+    name: 'Mali'
+},
+{
+    FIPS: 'MN',
+    name: 'Monaco'
+},
+{
+    FIPS: 'MO',
+    name: 'Morocco'
+},
+{
+    FIPS: 'MP',
+    name: 'Mauritius'
+},
+{
+    FIPS: 'MT',
+    name: 'Malta'
+},
+{
+    FIPS: 'MU',
+    name: 'Oman'
+},
+{
+    FIPS: 'MV',
+    name: 'Maldives'
+},
+{
+    FIPS: 'MX',
+    name: 'Mexico'
+},
+{
+    FIPS: 'MY',
+    name: 'Malaysia'
+},
+{
+    FIPS: 'MZ',
+    name: 'Mozambique'
+},
+
+
+
+
+
+{
+    FIPS: 'NC',
+    name: 'New Caledonia'
+},
+{
+    FIPS: 'NE',
+    name: 'Niue'
 },
 {
     FIPS: 'NG',
     name: 'Niger'
 },
 {
+    FIPS: 'NI',
+    name: 'Nigeria'
+},
+{
+    FIPS: 'NL',
+    name: 'Netherlands'
+},
+{
     FIPS: 'NO',
     name: 'Norway'
 },
 {
-    FIPS: 'FI',
-    name: 'Finland'
+    FIPS: 'NP',
+    name: 'Nepal'
+},
+{
+    FIPS: 'NR',
+    name: 'Nauru'
+},
+{
+    FIPS: 'NU',
+    name: 'Nicaragua'
+},
+{
+    FIPS: 'NZ',
+    name: 'New Zealand'
+},
+
+
+
+
+
+{
+    FIPS: 'OD',
+    name: 'South Sudan'
+},
+
+
+
+
+
+{
+    FIPS: 'PA',
+    name: 'Paraguay'
+},
+{
+    FIPS: 'PE',
+    name: 'Peru'
+},
+{
+    FIPS: 'PF',
+    name: 'Pakistan'
+},
+{
+    FIPS: 'PG',
+    name: 'Poland'
+},
+{
+    FIPS: 'PM',
+    name: 'Panama'
+},
+{
+    FIPS: 'PO',
+    name: 'Portugal'
+},
+{
+    FIPS: 'PP',
+    name: 'Papua New Guinea'
+},
+{
+    FIPS: 'PS',
+    name: 'Palau'
+},
+{
+    FIPS: 'PU',
+    name: 'Guinea-Bissau'
+},
+
+
+
+
+
+{
+    FIPS: 'QA',
+    name: 'Qatar'
+},
+
+
+
+
+
+
+{
+    FIPS: 'RI',
+    name: 'Serbia'
+},
+{
+    FIPS: 'RO',
+    name: 'Romania'
+},
+{
+    FIPS: 'RP',
+    name: 'Philippines'
+},
+{
+    FIPS: 'RQ',
+    name: 'Puerto Rico'
+},
+{
+    FIPS: 'RS',
+    name: 'Russia'
+},
+{
+    FIPS: 'RW',
+    name: 'Rwanda'
+},
+
+
+
+
+
+{
+    FIPS: 'SA',
+    name: 'Saudi Arabia'
+},
+{
+    FIPS: 'SE',
+    name: 'Seychelles'
+},
+{
+    FIPS: 'SF',
+    name: 'South Africa'
+},
+{
+    FIPS: 'SG',
+    name: 'Senegal'
+},
+{
+    FIPS: 'SI',
+    name: 'Slovenia'
+},
+{
+    FIPS: 'SL',
+    name: 'Sierra Leone'
+},
+{
+    FIPS: 'SM',
+    name: 'San Marino'
+},
+{
+    FIPS: 'SN',
+    name: 'Singapore'
+},
+{
+    FIPS: 'SO',
+    name: 'Somalia'
+},
+{
+    FIPS: 'SP',
+    name: 'Spain'
+},
+{
+    FIPS: 'ST',
+    name: 'Saint Lucia'
 },
 {
     FIPS: 'SU',
     name: 'Sudan'
 },
 {
+    FIPS: 'SV',
+    name: 'Svalbard'
+},
+{
+    FIPS: 'SW',
+    name: 'Sweden'
+},
+{
+    FIPS: 'SY',
+    name: 'Syria'
+},
+{
+    FIPS: 'SZ',
+    name: 'Switzerland'
+},
+
+
+
+
+
+{
+    FIPS: 'TD',
+    name: 'Trinidad and Tobago'
+},
+{
     FIPS: 'TH',
     name: 'Thailand'
+},
+{
+    FIPS: 'TI',
+    name: 'Tajikistan'
+},
+{
+    FIPS: 'TN',
+    name: 'Tonga'
+},
+{
+    FIPS: 'TO',
+    name: 'Togo'
+},
+{
+    FIPS: 'TP',
+    name: 'Sao Tome and Principe'
+},
+{
+    FIPS: 'TS',
+    name: 'Tunisia'
+},
+{
+    FIPS: 'TT',
+    name: 'Timor-Leste'
+},
+{
+    FIPS: 'TU',
+    name: 'Turkey'
 },
 {
     FIPS: 'TW',
     name: 'Taiwan'
 },
 {
+    FIPS: 'TX',
+    name: 'Turkmenistan'
+},
+{
+    FIPS: 'TZ',
+    name: 'Tanzania'
+},
+
+
+
+
+{
+    FIPS: 'UG',
+    name: 'Uganda'
+},
+{
     FIPS: 'UK',
     name: 'United Kingdom'
 },
 {
-    FIPS: 'JA',
-    name: 'Japan'
+    FIPS: 'UP',
+    name: 'Ukraine'
 },
 {
-    FIPS: 'NZ',
-    name: 'New Zealand'
+    FIPS: 'US',
+    name: 'United States'
 },
+{
+    FIPS: 'UV',
+    name: 'Burkina Faso'
+},
+{
+    FIPS: 'UY',
+    name: 'Uruguay'
+},
+{
+    FIPS: 'UZ',
+    name: 'Uzbekistan'
+},
+
+
+
+
+
+
+{
+    FIPS: 'VE',
+    name: 'Venezuela'
+},
+{
+    FIPS: 'VN',
+    name: 'Vietnam'
+},
+
+
+
+
+
+
+{
+    FIPS: 'WA',
+    name: 'Namibia'
+},
+{
+    FIPS: 'WS',
+    name: 'Samoa'
+},
+{
+    FIPS: 'WZ',
+    name: 'Swaziland'
+},
+
+
+
+{
+    FIPS: 'YM',
+    name: 'Yemen'
+},
+
+
+
+{
+    FIPS: 'ZA',
+    name: 'Zambia'
+},
+{
+    FIPS: 'ZI',
+    name: 'Zimbabwe'
+},
+
+
 ].sort(compare);
