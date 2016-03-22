@@ -146,13 +146,6 @@ export default  [
 
 
 
-
-
-
-
-
-
-
 {
     FIPS: 'CA',
     name: 'Canada'
@@ -282,6 +275,85 @@ export default  [
 {
     FIPS: 'EZ',
     name: 'Czech Republic'
+},
+
+
+
+{
+    FIPS: 'FG',
+    name: 'French Guiana'
+},
+{
+    FIPS: 'FI',
+    name: 'Finland'
+},
+{
+    FIPS: 'FJ',
+    name: 'Fiji'
+},
+{
+    FIPS: 'FR',
+    name: 'France'
+},
+
+
+
+
+{
+    FIPS: 'GA',
+    name: 'Gambia, The'
+},
+{
+    FIPS: 'GB',
+    name: 'Gabon'
+},
+{
+    FIPS: 'GG',
+    name: 'Georgia'
+},
+{
+    FIPS: 'GH',
+    name: 'Ghana'
+},
+{
+    FIPS: 'GI',
+    name: 'Gibraltar'
+},
+{
+    FIPS: 'GJ',
+    name: 'Grenada'
+},
+{
+    FIPS: 'GK',
+    name: 'Guernsey'
+},
+{
+    FIPS: 'GL',
+    name: 'Greenland'
+},
+{
+    FIPS: 'GM',
+    name: 'Germany'
+},
+{
+    FIPS: 'GR',
+    name: 'Greece'
+},
+{
+    FIPS: 'GT',
+    name: 'Guatemala'
+},
+{
+    FIPS: 'GV',
+    name: 'Guinea'
+},
+{
+    FIPS: 'GY',
+    name: 'Guyana'
+},
+{
+    FIPS: 'GZ',
+    name: 'Gaza Strip'
 },
 
 
