@@ -55,6 +55,10 @@ export default  [
     name: 'Argentina'
 },
 {
+    FIPS: 'AS',
+    name: 'Australia'
+},
+{
     FIPS: 'AU',
     name: 'Austria'
 },
@@ -63,30 +67,228 @@ export default  [
 
 
 
+
 {
-    FIPS: 'AS',
-    name: 'Australia'
+    FIPS: 'BA',
+    name: 'Bahrain'
 },
 {
-    FIPS: 'AR',
-    name: 'Argentina'
+    FIPS: 'BB',
+    name: 'Barbados'
+},
+{
+    FIPS: 'BC',
+    name: 'Botswana'
+},
+{
+    FIPS: 'BD',
+    name: 'Bermuda'
+},
+{
+    FIPS: 'BE',
+    name: 'Belgium'
+},
+{
+    FIPS: 'BF',
+    name: 'Bahamas, The'
+},
+{
+    FIPS: 'BG',
+    name: 'Bangladesh'
+},
+{
+    FIPS: 'BH',
+    name: 'Belize'
+},
+{
+    FIPS: 'BK',
+    name: 'Bosnia and Herzegovina'
+},
+{
+    FIPS: 'BL',
+    name: 'Bolivia'
+},
+{
+    FIPS: 'BM',
+    name: 'Burma'
+},
+{
+    FIPS: 'BN',
+    name: 'Benin'
+},
+{
+    FIPS: 'BO',
+    name: 'Belarus'
 },
 {
     FIPS: 'BR',
     name: 'Brazil'
 },
 {
+    FIPS: 'BT',
+    name: 'Bhutan'
+},
+{
+    FIPS: 'BU',
+    name: 'Bulgaria'
+},
+{
+    FIPS: 'BX',
+    name: 'Brunei'
+},
+{
+    FIPS: 'BY',
+    name: 'Burundi'
+},
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+    FIPS: 'CA',
+    name: 'Canada'
+},
+{
     FIPS: 'CB',
     name: 'Cambodia'
+},
+{
+    FIPS: 'CD',
+    name: 'Chad'
+},
+{
+    FIPS: 'CE',
+    name: 'Sri Lanka'
+},
+{
+    FIPS: 'CF',
+    name: 'Congo (Brazzaville)'
+},
+{
+    FIPS: 'CG',
+    name: 'Congo (Kinshasa)'
+},
+{
+    FIPS: 'CH',
+    name: 'China'
+},
+{
+    FIPS: 'CI',
+    name: 'Chile'
+},
+{
+    FIPS: 'CM',
+    name: 'Cameroon'
+},
+{
+    FIPS: 'CN',
+    name: 'Comoros'
+},
+{
+    FIPS: 'CO',
+    name: 'Colombia'
+},
+{
+    FIPS: 'CS',
+    name: 'Costa Rica'
+},
+{
+    FIPS: 'CT',
+    name: 'Central African Republic'
 },
 {
     FIPS: 'CU',
     name: 'Cuba'
 },
 {
+    FIPS: 'CV',
+    name: 'Cape Verde'
+},
+{
+    FIPS: 'CY',
+    name: 'Cyprus'
+},
+
+
+
+
+
+
+
+
+
+
+{
     FIPS: 'DK',
     name: 'Denmark'
 },
+{
+    FIPS: 'DJ',
+    name: 'Djibouti'
+},
+{
+    FIPS: 'DO',
+    name: 'Dominica'
+},
+{
+    FIPS: 'DR',
+    name: 'Dominican Republic'
+},
+
+
+
+
+{
+    FIPS: 'EC',
+    name: 'Ecuador'
+},
+{
+    FIPS: 'EG',
+    name: 'Egypt'
+},
+{
+    FIPS: 'EI',
+    name: 'Ireland'
+},
+{
+    FIPS: 'EK',
+    name: 'Equatorial Guinea'
+},
+{
+    FIPS: 'EN',
+    name: 'Estonia'
+},
+{
+    FIPS: 'ER',
+    name: 'Eritrea'
+},
+{
+    FIPS: 'ES',
+    name: 'El Salvador'
+},
+{
+    FIPS: 'ET',
+    name: 'Ethiopia'
+},
+{
+    FIPS: 'EZ',
+    name: 'Czech Republic'
+},
+
+
+
+
+
+
 {
     FIPS: 'MX',
     name: 'Mexico'
@@ -123,6 +325,12 @@ export default  [
     FIPS: 'KS',
     name: 'Korea, South'
 },
+
+{
+    FIPS: 'RP',
+    name: 'Philippines'
+},
+
 {
     FIPS: 'WS',
     name: 'Samoa'

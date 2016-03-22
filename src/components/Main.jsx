@@ -86,7 +86,7 @@ export default class Main extends Component {
                 </div>
                 
                 <div className="row">
-                    <div className="col-lg-6">
+                    <div className="col-xs-12 col-lg-6">
                         <SelectField value={this.state.fips1} onChange={ this.fips1 }>
                             {this.FIPSData}
                         </SelectField>
@@ -94,7 +94,7 @@ export default class Main extends Component {
                         <Chart year={this.state.year} country={this.state.fipsData1} scale={0.1*this.state.fipsData1.get('maxYear')} />
                     </div>
                     
-                    <div className="col-lg-6">
+                    <div className="col-xs-12 col-lg-6">
                         <SelectField value={this.state.fips2} onChange={ this.fips2 } >
                             {this.FIPSData}
                         </SelectField>
@@ -191,7 +191,6 @@ export default class Main extends Component {
             newState[fipsKey] = Immutable.fromJS(v);
             newState[watingIndex] = false;
             this.setState(newState);
-            this.onAnimate();
         })
         
         return p;
