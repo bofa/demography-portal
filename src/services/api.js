@@ -45,7 +45,7 @@ export default class API {
         let promises = [];
         for(let year of years) {
             
-            let url = "http://api.census.gov/data/timeseries/idb/5year?get=NAME,POP," + ageString + "&FIPS=" + country + "&time=" + year + '&key=' + apiKey;
+            let url = "https://api.census.gov/data/timeseries/idb/5year?get=NAME,POP," + ageString + "&FIPS=" + country + "&time=" + year + '&key=' + apiKey;
 
             if( year in localStorage  ) {
                 promises.push(Promise.resolve( {[year]: localStorage[year] } ));

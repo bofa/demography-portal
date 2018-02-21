@@ -39,7 +39,7 @@ export default class Main extends Component {
         .map( (c,i) => <MenuItem value={c.FIPS} key={i} primaryText={c.name} /> );
         
         this.state = {
-            year: 2015,
+            year: (new Date()).getFullYear(),
             fips1: 'NI',
             fips2: 'QA',
             fipsData1: Map(),
