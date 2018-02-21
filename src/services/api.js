@@ -31,7 +31,6 @@ export default class API {
     static getCountry(country, years) {
         
         // LS.clear();
-        const apiKey = '09befa8408a54a731b74a37f7b816fee2346d506';
         const ageArray = API.generateAgeArray();
         const ageString = ageArray.reduce( (a,b) => a + "," + b);
         
@@ -43,7 +42,7 @@ export default class API {
         let promises = [];
         for(let year of years) {
             
-            let url = "http://api.census.gov/data/timeseries/idb/5year?key=" + apiKey + "&get=NAME,POP,CBR,CDR,E0," + 
+            let url = "http://api.census.gov/data/timeseries/idb/5year?get=NAME,POP,CBR,CDR,E0," + 
                         ageString + "&FIPS=" + country + "&time=" + year;
 
             if( year in localStorage  ) {
