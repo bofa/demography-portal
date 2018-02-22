@@ -221,7 +221,7 @@ export default  [
 
 
 {
-    FIPS: 'DK',
+    FIPS: 'DA',
     name: 'Denmark'
 },
 {
@@ -404,7 +404,7 @@ export default  [
     name: 'Iran'
 },
 {
-    FIPS: 'IL',
+    FIPS: 'IS',
     name: 'Israel'
 },
 {
