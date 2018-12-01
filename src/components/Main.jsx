@@ -90,7 +90,14 @@ export default class Main extends Component {
             <div>
             
                 <div>
-                    <Slider animate={this.state.interval===-1} year={year} min={settings.minYear} max={settings.maxYear} onChange={this.onSliderChange} onAnimate={ this.onAnimate } />
+                    <Slider
+                        animate={this.state.interval===-1}
+                        year={year}
+                        min={settings.minYear}
+                        max={settings.maxYear}
+                        onChange={this.onSliderChange}
+                        onAnimate={ this.onAnimate }
+                    />
                 </div>
                 
                 <div className="row">
@@ -110,18 +117,17 @@ export default class Main extends Component {
                         <Chart year={year}  country={this.state.fipsData2} scale={0.1*this.state.fipsData2.get('maxYear')}/>
                     </div>
                 </div>
-
             </div>
         );
     }
     
     onAnimate() {
         
-        //TODO Rounting
+        //TODO Routing
         //const year = parseInt(this.props.params).year;
         const year = this.state.year;
         
-        if(this.state.interval===-1) {
+        if(this.state.interval === -1) {
             // Fire imidiatly
             const newYear = year>=settings.maxYear ? settings.minYear : year+1;
             this.setState({year: newYear});
@@ -215,8 +221,5 @@ export default class Main extends Component {
         })
         
         return p;
-        
     }
-    
-    
 }

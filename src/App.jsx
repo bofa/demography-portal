@@ -17,26 +17,9 @@ export default class App extends Component {
         this.state = {};
         
     }
-
-    //<Route path="/:year/:fips1/:fips2" component={Main}>
-    
-    /*
-    render() {
-        
-        // <Redirect from="/" to="/2016" />
-        return (
-            <Router history={browserHistory}>
-                <Route path="/:year" component={Main}>
-                </Route>
-                
-            </Router>
-        );
-    }
-    */
     
     render() {
         
-        // <Redirect from="/" to="/2016" />
         return (
             <Main />
         );

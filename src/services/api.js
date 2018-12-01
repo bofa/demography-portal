@@ -41,34 +41,31 @@ export default class API {
         let localStorage = LS.get(country);
         localStorage = localStorage ? JSON.parse(localStorage) : {};
         
-        
-        let promises = [];
-        for(let year of years) {
-            
-            let url = "https://api.census.gov/data/timeseries/idb/5year?get=NAME,POP," + ageString + "&FIPS=" + country + "&time=" + year + '&key=' + apiKey;
+
+        const promises = years.map(year => {
 
             if( year in localStorage  ) {
-                promises.push(Promise.resolve( {[year]: localStorage[year] } ));
+                return Promise.resolve({[year]: localStorage[year]});
+            } else {
+                let url = "https://api.census.gov/data/timeseries/idb/5year?get=NAME,POP," + ageString + "&FIPS=" + country + "&time=" + year + '&key=' + apiKey;
+
+                return axios.get(url)
+                    .then(function (response) {
+                        let out = {};
+                        out[year] = API.reMap(response.data)
+                        return out;
+                    })
+                    .catch(function (response) {
+                        return undefined;
+                    });
             }
-            else {
-                promises.push(axios.get(url)
-                .then(function (response) {
-                    let out = {};
-                    out[year] = API.reMap(response.data)
-                    return out;
-                })
-                .catch(function (response) {
-                    return undefined;
-                }));
-            }
-            
-        }
+        });
         
         let pOut = Promise.all(promises).then(values => { 
-            return values.reduce( (a,b) => Object.assign(a,b) );
-        }, f => console.log("API fail", f) );
+            return values.reduce( (a,b) => Object.assign(a, b));
+        });
         
-        pOut.then( v => LS(country, JSON.stringify(v) ) );
+        pOut.then(v => LS(country, JSON.stringify(v)));
         
         return pOut;
     }

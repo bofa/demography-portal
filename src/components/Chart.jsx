@@ -105,12 +105,11 @@ export default class Chart extends Component {
         if(!country) {
             return false;
         }
-        
+
         this.config.series[0].data = this.menArray.map(e => -parseInt(country.getIn([''+year, e])));
         this.config.series[1].data = this.womanArray.map(e => parseInt(country.getIn([''+year, e])));        
 
-        
-        const menData = this.menArray.map(e => -parseInt(country.getIn([''+year, e])));
+        const menData = this.menArray.map(e => parseInt(country.getIn([''+year, e])));
         const womanData = this.womanArray.map(e => parseInt(country.getIn([''+year, e])));
         
         // Age categories
@@ -119,6 +118,16 @@ export default class Chart extends Component {
                             '45-49', '50-54', '55-59', '60-64', '65-69',
                             '70-74', '75-79', '80-84', '85-89', '90-94',
                             '95-99', '100 + '];
+
+        console.log('this.props', menData);
+
+        console.log('womanData', womanData);
+
+        const totalPop = menData.concat(womanData).reduce((v, sum) => v + sum, 0);
+
+        const under20 = menData.slice(0, 4).concat(womanData.slice(0, 4)).reduce((v, sum) => v + sum, 0);
+        const pop20to65 = menData.slice(5, 12).concat(womanData.slice(5, 12)).reduce((v, sum) => v + sum, 0);
+        const over65 = menData.slice(13).concat(womanData.slice(13)).reduce((v, sum) => v + sum, 0);
         
         let config = {
             chart: {
@@ -171,7 +180,7 @@ export default class Chart extends Component {
             },
             series: [{
                 name: 'Male',
-                data: menData,
+                data: menData.map(m => -m),
                 animation: false,
             }, {
                 name: 'Female',
@@ -180,13 +189,25 @@ export default class Chart extends Component {
             }]
         }
         
-        console.log("config", config, this.config);
-        
-        //config = {...this.config};
-        
+        // console.log("config", config, this.config);
+
         return (
             <div>
                 <ReactHighcharts isPureConfig={true} config={config}></ReactHighcharts>
+                <div className="row" style={{ margin: 20 }}>
+                    <h3 className="col-xs-3">
+                        Population: {(totalPop*1E-6).toFixed(1)}megahumans
+                    </h3>
+                    <h3 className="col-xs-3">
+                        Under 20: {(100*under20/totalPop).toFixed(0)}%
+                    </h3>
+                    <h3 className="col-xs-3">
+                        18-65: {(100*pop20to65/totalPop).toFixed(0)}%
+                    </h3>
+                    <h3 className="col-xs-3">
+                        Over 65: {(100*over65/totalPop).toFixed(0)}%
+                    </h3>
+                </div>
             </div>
         );
     }
