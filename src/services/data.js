@@ -664,7 +664,7 @@ export default  [
     name: 'Peru'
 },
 {
-    FIPS: 'PF',
+    FIPS: 'PK',
     name: 'Pakistan'
 },
 {

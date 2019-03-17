@@ -202,7 +202,7 @@ export default class Chart extends Component {
                         Under 20: {(100*under20/totalPop).toFixed(0)}%
                     </h3>
                     <h3 className="col-xs-3">
-                        18-65: {(100*pop20to65/totalPop).toFixed(0)}%
+                        20-65: {(100*pop20to65/totalPop).toFixed(0)}%
                     </h3>
                     <h3 className="col-xs-3">
                         Over 65: {(100*over65/totalPop).toFixed(0)}%
